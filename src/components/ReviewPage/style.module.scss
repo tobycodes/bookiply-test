@@ -1,0 +1,55 @@
+.page {
+  margin: 0 4rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.banner {
+  height: 75vh;
+  width: 100%;
+  // clip-path: ellipse(70vh at 50% 10vh);
+  background-size: cover;
+  // filter: brightness(84%);
+  background-position: bottom 35% left 50%;
+  top: 0;
+}
+
+.main {
+  margin: 0 auto;
+  width: 98rem;
+
+  position: absolute;
+  top: 5rem;
+  max-width: 80%;
+}
+
+.header {
+  color: #fff;
+  margin-bottom: 4.5rem;
+}
+
+.id {
+  font-size: 1.7rem;
+  display: inline-block;
+}
+
+.name {
+  font-size: 3rem;
+}
+
+.reviews {
+  background-color: #fff;
+  padding: 4rem 3rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(#ccc, 0.9);
+}
+
+.review-count {
+  font-size: 3.5rem;
+  margin-bottom: 3rem;
+  color: #163753;
+}
+
+.review-list {
+}

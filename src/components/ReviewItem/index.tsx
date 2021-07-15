@@ -2,6 +2,11 @@ import { FC } from "react";
 import { Review } from "../../types/reviews";
 import styles from "./style.module.scss";
 
+// import logo from "../../assets/AIRBNB.svg";
+// import thumbUp from "../../assets/thumb-up.svg";
+// import thumbDown from "../../assets/thumb-down.svg";
+import formatDate from "../../utils/formatDate";
+
 const ReviewItem: FC<Review> = ({
   headline,
   comment,
@@ -12,21 +17,37 @@ const ReviewItem: FC<Review> = ({
   positiveFeedback,
   negativeFeedback,
 }) => {
+  const fullDateString = formatDate(publishedAt);
+
   return (
-    <div>
-      <div className="header">
-        <div className="rating">{score} / 5</div>
-        <div className="channel">
-          <img src="../../assets/AIRBNB.svg" alt={channel} />
+    <div className={styles.review}>
+      <div className={styles.header}>
+        <div className={styles.rating}>
+          <span>{score}</span> / 5
         </div>
+        <span className={styles.channel}>
+          <img src={`/assets/${channel}.svg`} alt={channel} />
+        </span>
       </div>
-      <h4 className="headline">{headline}</h4>
-      <p className="comment">{comment}</p>
-      <p className="feedback">{positiveFeedback}</p>
-      <p className="feedback">{negativeFeedback}</p>
-      <div className="footer">
-        <span className="author">{author}</span>
-        <span className="date">Reviewed {publishedAt}</span>
+      <h4 className={styles.headline}>{headline}</h4>
+      <p className={styles.comment}>{comment}</p>
+      {positiveFeedback ? (
+        <p className={styles.feedback}>
+          <span>
+            <img src="/assets/thumb-up.svg" alt="thumb up" />
+          </span>
+          {positiveFeedback}
+        </p>
+      ) : null}
+      {negativeFeedback ? (
+        <p className={styles.feedback}>
+          <img src="/assets/thumb-down.svg" alt="thumb down" />
+          {negativeFeedback}
+        </p>
+      ) : null}
+      <div className={styles.footer}>
+        <span className={styles.author}>{author}</span>
+        <span className={styles.date}>Reviewed {fullDateString}</span>
       </div>
     </div>
   );

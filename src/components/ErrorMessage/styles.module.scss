@@ -1,0 +1,25 @@
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  button {
+    color: white;
+    background-color: #0076db;
+    border: 1px solid #0076db;
+    border-radius: 0.5rem;
+    padding: 1rem;
+
+    font-weight: 600;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+}

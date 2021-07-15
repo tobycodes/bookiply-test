@@ -1,5 +1,9 @@
 import { Review } from "./../../types/reviews";
-import { SET_IS_FETCHING, FETCH_REVIEWS_SUCCESS } from "./../types/reviews";
+import {
+  SET_IS_FETCHING,
+  FETCH_REVIEWS_SUCCESS,
+  FETCH_REVIEWS_FAIL,
+} from "./../types/reviews";
 let data: Review[] = [];
 
 const initialState = {
@@ -22,7 +26,10 @@ const reviewsReducer = (
     case SET_IS_FETCHING:
       return { ...state, isFetching: payload };
     case FETCH_REVIEWS_SUCCESS:
-      return { ...state, data: payload };
+      return { ...state, ...payload, errorMessage: "" };
+
+    case FETCH_REVIEWS_FAIL:
+      return { ...state, errorMessage: payload };
     default:
       return state;
   }

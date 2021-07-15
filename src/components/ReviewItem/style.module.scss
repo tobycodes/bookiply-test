@@ -1,1 +1,88 @@
+.review {
+  &:not(:last-child) {
+    border-bottom: 1px solid #e1e4e7;
+    margin-bottom: 3rem;
+  }
 
+  & > * {
+    padding-bottom: 1.5rem;
+  }
+
+  & > *:last-child {
+    padding-bottom: 2.5rem;
+  }
+
+  .comment,
+  .feedback {
+    line-height: 1.7;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  // margin-bottom: 2rem;
+}
+
+.rating {
+  color: #fff;
+  background-color: #0076db;
+  font-size: 1.5rem;
+  line-height: 1;
+  min-height: 0.5rem;
+  border-radius: 0.8rem;
+  margin-right: 1.5rem;
+  padding: 0.8rem 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+
+    color: inherit;
+  }
+}
+
+.channel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headline {
+  font-size: 1.6rem;
+}
+
+.feedback {
+  position: relative;
+
+  img {
+    margin-right: 1rem;
+    float: left;
+    overflow: hidden;
+    margin-top: 0.3rem;
+  }
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.author {
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.date {
+  color: #667a8e;
+  font-size: 1.3rem;
+  font-weight: 500;
+}

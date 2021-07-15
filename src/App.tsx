@@ -1,10 +1,10 @@
-import ReviewPage from "./components/ReviewPage";
+import ReviewsPage from "./components/ReviewsPage";
 import "./App.scss";
 
 function App() {
   return (
     <div className="App">
-      <ReviewPage />
+      <ReviewsPage />
     </div>
   );
 }

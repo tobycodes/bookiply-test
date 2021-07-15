@@ -1,6 +1,10 @@
 .review-count {
   font-size: 3.3rem;
   font-weight: 700;
-  margin-bottom: 3.5rem;
   color: #163753;
+  margin-bottom: 3rem;
+
+  @media only screen and (min-width: 37.5em) {
+    margin-bottom: 3.5rem;
+  }
 }

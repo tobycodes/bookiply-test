@@ -21,6 +21,7 @@ const Pagination: FC<Props> = ({ currentPage, totalPages, onPageChange }) => {
         activeClassName={styles.active}
         disabledClassName={styles.disabled}
         previousClassName={styles.previous}
+        previousLabel="Prev"
         nextClassName={styles.next}
         breakClassName={styles.button}
         onPageChange={({ selected }) => onPageChange(selected + 1)}

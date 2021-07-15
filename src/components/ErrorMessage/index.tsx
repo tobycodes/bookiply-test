@@ -5,6 +5,7 @@ interface Props {
   message: string;
   onClick: () => void;
 }
+
 const ErrorMessage: FC<Props> = ({ message, onClick }) => {
   return (
     <div className={styles.error}>

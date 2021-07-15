@@ -1,10 +1,8 @@
 import { FC } from "react";
 import { Review } from "../../types/reviews";
+
 import styles from "./style.module.scss";
 
-// import logo from "../../assets/AIRBNB.svg";
-// import thumbUp from "../../assets/thumb-up.svg";
-// import thumbDown from "../../assets/thumb-down.svg";
 import formatDate from "../../utils/formatDate";
 
 const ReviewItem: FC<Review> = ({

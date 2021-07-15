@@ -1,10 +1,31 @@
-.review-count {
-  font-size: 3.3rem;
-  font-weight: 700;
-  color: #163753;
+.header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  // justify-content: space-between;
   margin-bottom: 3rem;
 
   @media only screen and (min-width: 37.5em) {
     margin-bottom: 3.5rem;
   }
+}
+
+.filter {
+  display: flex;
+}
+
+.filter-input {
+  width: 15rem;
+  align-self: center;
+
+  &:not(:last-child) {
+    margin-right: 1rem;
+  }
+}
+
+.review-count {
+  font-size: 3.3rem;
+  font-weight: 700;
+  color: #163753;
+  margin-right: auto;
 }

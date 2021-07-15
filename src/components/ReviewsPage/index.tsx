@@ -5,7 +5,6 @@ import { fetchReviews } from "../../redux/actions/reviews";
 import { RootState } from "../../redux/store";
 import ErrorMessage from "../ErrorMessage";
 import ReviewList from "../ReviewsList";
-import Spinner from "../Spinner";
 
 import styles from "./style.module.scss";
 
@@ -13,18 +12,25 @@ interface Props {
   isLoading: boolean;
   errorMessage: string;
   currentPage: number;
-  fetchReviews: (page?: number) => void;
+  score: string;
+  channel: string;
+  fetchReviews: (
+    page: number,
+    opts?: { score: string; channel: string }
+  ) => void;
 }
 
 const ReviewsPage: FC<Props> = ({
   isLoading,
   errorMessage,
   currentPage,
+  score,
+  channel,
   fetchReviews,
 }) => {
   const fetchData = useCallback(() => {
-    fetchReviews(currentPage);
-  }, [fetchReviews, currentPage]);
+    fetchReviews(currentPage, { score, channel });
+  }, [fetchReviews, currentPage, score, channel]);
 
   useEffect(() => {
     fetchData();
@@ -45,9 +51,7 @@ const ReviewsPage: FC<Props> = ({
           <h1 className={styles.name}>La Casa de las Flores</h1>
         </div>
         <div className={styles.reviews}>
-          {isLoading ? (
-            <Spinner />
-          ) : errorMessage ? (
+          {errorMessage ? (
             <ErrorMessage message={errorMessage} onClick={fetchData} />
           ) : (
             <ReviewList />
@@ -62,6 +66,8 @@ const mapStateToProps = ({ reviews }: RootState) => ({
   isLoading: reviews.isFetching,
   errorMessage: reviews.errorMessage,
   currentPage: reviews.currentPage,
+  score: reviews.score,
+  channel: reviews.channel,
 });
 
 const mapDispatchToProps = { fetchReviews };

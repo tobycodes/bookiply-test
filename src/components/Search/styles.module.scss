@@ -1,0 +1,15 @@
+.input {
+  display: flex;
+  align-items: center;
+  outline: none;
+  height: 3.8rem;
+  width: 15rem;
+  border-radius: 0.4rem;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+
+  &:focus {
+    border-color: #2684ff;
+    border-width: 2px;
+  }
+}

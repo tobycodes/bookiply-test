@@ -9,7 +9,6 @@ import ReviewList from "../ReviewsList";
 import styles from "./style.module.scss";
 
 interface Props {
-  isLoading: boolean;
   errorMessage: string;
   currentPage: number;
   score: string;
@@ -21,7 +20,6 @@ interface Props {
 }
 
 const ReviewsPage: FC<Props> = ({
-  isLoading,
   errorMessage,
   currentPage,
   score,
@@ -42,7 +40,7 @@ const ReviewsPage: FC<Props> = ({
         className={styles.banner}
         style={{
           backgroundImage:
-            "linear-gradient(to bottom, rgba(0,0,0, 0.1), #163753), url('/assets/background.png')",
+            "linear-gradient(to bottom, rgba(0,0,0, 0.1), rgba(22, 55, 83, 0.9)), url('/assets/background.png')",
         }}
       ></div>
       <div className={styles.main}>
@@ -63,7 +61,6 @@ const ReviewsPage: FC<Props> = ({
 };
 
 const mapStateToProps = ({ reviews }: RootState) => ({
-  isLoading: reviews.isFetching,
   errorMessage: reviews.errorMessage,
   currentPage: reviews.currentPage,
   score: reviews.score,

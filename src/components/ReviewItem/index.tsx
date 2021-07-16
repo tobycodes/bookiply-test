@@ -1,4 +1,5 @@
 import { FC } from "react";
+
 import { Review } from "../../types/reviews";
 
 import styles from "./style.module.scss";

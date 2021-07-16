@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { connect } from "react-redux";
 import Select from "react-select";
-import useDebounce from "../../hooks/useDebounce";
 
+import useDebounce from "../../hooks/useDebounce";
 import {
   fetchReviews,
   setChannelFilter,
@@ -10,6 +10,7 @@ import {
 } from "../../redux/actions/reviews";
 import { RootState } from "../../redux/store";
 import { Review } from "../../types/reviews";
+
 import Pagination from "../Pagination";
 import ReviewItem from "../ReviewItem";
 import Search from "../Search";
@@ -91,7 +92,7 @@ const ReviewsList: FC<Props> = ({
             currentPage={currentPage}
             totalPages={totalPages}
             onPageChange={fetchReviews}
-          />{" "}
+          />
         </>
       ) : (
         <div style={{ textAlign: "center" }}>No reviews submitted.</div>
@@ -101,7 +102,7 @@ const ReviewsList: FC<Props> = ({
 };
 
 const mapStateToProps = ({
-  reviews: { data, currentPage, totalPages, isFetching, score, channel },
+  reviews: { data, currentPage, totalPages, isFetching },
 }: RootState) => ({
   reviews: data,
   currentPage,

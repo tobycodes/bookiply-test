@@ -1,27 +1,29 @@
 import { ChangeEvent, FC, useState } from "react";
+import useDebounce from "../../hooks/useDebounce";
 
 import styles from "./styles.module.scss";
 
 interface Props {
   name: string;
   isDisabled: boolean;
-  onChange: (value: string) => void;
+  onSearch: (value: string) => void;
   placeholder?: string;
 }
 
-const Search: FC<Props> = ({ name, isDisabled, placeholder, onChange }) => {
+const Search: FC<Props> = ({ name, isDisabled, placeholder, onSearch }) => {
   const [value, setValue] = useState("");
+  const debouncedOnSearch = useDebounce(onSearch);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
-    onChange(e.target.value);
+    debouncedOnSearch(e.target.value);
   };
 
   return (
     <input
       name={name}
       id={name}
-      type="text"
+      type="search"
       value={value}
       disabled={isDisabled}
       placeholder={placeholder}

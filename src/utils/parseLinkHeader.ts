@@ -1,3 +1,6 @@
+/**
+ * Parses the api link header string and returns the current page and total pages parameters as an object
+ */
 export default function parseLinkHeader(paginationLink: string) {
   if (!paginationLink) return { currentPage: 1, totalPages: 1 };
 
@@ -9,6 +12,11 @@ export default function parseLinkHeader(paginationLink: string) {
   return { currentPage, totalPages: +totalPages };
 }
 
+/**
+ * Parses the pagination header link and returns the pagination links (i.e. first, next and last) as an object.
+ * Function source: https://tinyurl.com/4yhhjyyb
+ * @param link A pagination link from the api link header.
+ */
 function parseLink(link: string) {
   const linkHeadersArray = link.split(", ").map((header) => header.split("; "));
 
@@ -19,9 +27,11 @@ function parseLink(link: string) {
   });
 
   return Object.fromEntries(linkHeadersMap);
-  //function source: https://tinyurl.com/4yhhjyyb
 }
 
+/** Extracts query parameters from a url string and returns them as an object.
+ * @param {string} urlString A url string containing query parameters.
+ */
 function extractParams(urlString: string) {
   const paramsObject = urlString
     .split("?_")[1]

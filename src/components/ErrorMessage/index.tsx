@@ -1,6 +1,7 @@
 import { FC } from "react";
 
 import styles from "./styles.module.scss";
+
 interface Props {
   message: string;
   onClick: () => void;

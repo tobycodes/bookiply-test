@@ -1,3 +1,4 @@
+import { SET_CURRENT_PAGE } from "./../action-types/reviews";
 import { Review } from "./../../types/reviews";
 import { getReviews } from "./../../async/api";
 import {
@@ -6,7 +7,7 @@ import {
   SET_IS_FETCHING,
   SET_SCORE_FILTER,
   SET_CHANNEL_FILTER,
-} from "../types/reviews";
+} from "../action-types/reviews";
 import { TDispatch } from "./../../types/common";
 import parseLinkHeader from "../../utils/parseLinkHeader";
 
@@ -47,6 +48,11 @@ export const fetchReviewsFail = (error: string) => ({
 export const setIsFetching = (isFetching: boolean) => ({
   type: SET_IS_FETCHING,
   payload: isFetching,
+});
+
+export const setCurrentPage = (page: number) => ({
+  type: SET_CURRENT_PAGE,
+  payload: page,
 });
 
 export const setScoreFilter = (score: string) => ({

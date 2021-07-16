@@ -1,14 +1,16 @@
+@use "../../sass/variables.scss" as global;
+
 .page {
   padding-bottom: 4rem;
   display: flex;
   justify-content: center;
   position: relative;
 
-  @media only screen and (min-width: 50em) {
+  @media only screen and (min-width: global.$bp-medium) {
     margin: 0 2rem;
   }
 
-  @media only screen and (min-width: 64em) {
+  @media only screen and (min-width: global.$bp-large) {
     margin: 0 4rem;
   }
 }
@@ -19,7 +21,7 @@
   background-size: cover;
   background-position: bottom 35% left 50%;
 
-  @media only screen and (min-width: 37.5em) {
+  @media only screen and (min-width: global.$bp-small) {
     clip-path: polygon(0 0, 100% 0%, 100% 90%, 50% 100%, 0 90%);
   }
 }
@@ -61,11 +63,11 @@
   background-color: #fff;
   padding: 2.7rem 2rem;
   border-radius: 0.5rem;
-  box-shadow: 0 2px 4px rgba(#ccc, 0.9);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
 
-  @media only screen and (min-width: 37.5em) {
+  @media only screen and (min-width: global.$bp-small) {
     padding: 4rem 3rem;
   }
 }

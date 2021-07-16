@@ -1,4 +1,4 @@
-import ReviewsPage from "./components/ReviewsPage";
+import ReviewsPage from "../ReviewsPage";
 import "./App.scss";
 
 function App() {

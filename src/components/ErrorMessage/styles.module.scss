@@ -1,3 +1,5 @@
+@use "../../sass/variables.scss" as global;
+
 .error {
   display: flex;
   flex-direction: column;
@@ -13,12 +15,13 @@
 
   button {
     color: white;
-    background-color: #0076db;
-    border: 1px solid #0076db;
+    background-color: global.$color-blue;
+    border: 1px solid global.$color-blue;
     border-radius: 0.5rem;
     padding: 1rem;
 
     font-weight: 600;
+    font-family: inherit;
     font-size: 1.5rem;
     cursor: pointer;
   }

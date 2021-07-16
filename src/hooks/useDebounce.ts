@@ -1,13 +1,20 @@
+import { useCallback, useRef } from "react";
+
 const useDebounce = (fn: Function, timeout = 500) => {
-  let timer: any;
+  const timerRef = useRef<any>();
 
-  return (...args: any) => {
-    clearTimeout(timer);
+  const debounced = useCallback(
+    (...args: any) => {
+      clearTimeout(timerRef.current);
 
-    timer = setTimeout(() => {
-      fn.apply(this, args);
-    }, timeout);
-  };
+      timerRef.current = setTimeout(() => {
+        fn.apply(this, args);
+      }, timeout);
+    },
+    [fn, timeout]
+  );
+
+  return debounced;
 };
 
 export default useDebounce;

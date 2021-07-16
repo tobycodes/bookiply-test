@@ -1,4 +1,8 @@
+@use "../../sass/variables.scss" as global;
+
+//LOCAL VARIABLES
 $border-radius: 0.5rem;
+$color-grey: #d3d0d0;
 
 .container {
   list-style: none;
@@ -9,21 +13,29 @@ $border-radius: 0.5rem;
   margin-top: 2rem;
 }
 
-.button {
-  border-right: 1px solid #d3d0d0;
-  cursor: pointer;
-
-  a {
-    padding: 0.5rem;
-  }
-}
-
 .button,
 .previous,
 .next {
-  padding: 0.5rem 0.8rem;
-  border-top: 1px solid #d3d0d0;
-  border-bottom: 1px solid #d3d0d0;
+  border-top: 1px solid $color-grey;
+  border-bottom: 1px solid $color-grey;
+  font-family: inherit;
+
+  a {
+    display: block;
+    padding: 0.5rem 1rem;
+  }
+}
+
+.button {
+  border-right: 1px solid $color-grey;
+  cursor: pointer;
+
+  a {
+    padding: {
+      left: 1.2rem;
+      right: 1.2rem;
+    }
+  }
 }
 
 .button:nth-last-child(2),
@@ -34,29 +46,29 @@ $border-radius: 0.5rem;
 
 .previous,
 .next {
-  color: #0076db;
+  color: global.$color-blue;
   margin: 0 1rem;
-  border: 1px solid #d3d0d0;
+  border: 1px solid $color-grey;
 
   cursor: pointer;
 }
 
 .previous,
 .previous + .button {
-  border-left: 1px solid #d3d0d0;
+  border-left: 1px solid $color-grey;
   border-top-left-radius: $border-radius;
   border-bottom-left-radius: $border-radius;
 }
 
 .active {
   color: white;
-  background-color: #0076db;
-  border: 1px solid #0076db;
+  background-color: global.$color-blue;
+  border: 1px solid global.$color-blue;
 }
 
 .disabled {
-  background-color: #d3d0d0;
-  border: 1px solid #d3d0d0;
+  background-color: $color-grey;
+  border: 1px solid $color-grey;
   color: white;
   cursor: not-allowed;
 }

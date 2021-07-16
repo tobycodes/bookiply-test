@@ -2,11 +2,10 @@ import { FC } from "react";
 import { connect } from "react-redux";
 import Select from "react-select";
 
-import useDebounce from "../../hooks/useDebounce";
 import {
-  fetchReviews,
   setChannelFilter,
   setScoreFilter,
+  setCurrentPage,
 } from "../../redux/actions/reviews";
 import { RootState } from "../../redux/store";
 import { Review } from "../../types/reviews";
@@ -19,6 +18,7 @@ import Spinner from "../Spinner";
 import styles from "./styles.module.scss";
 
 const SCORE_OPTIONS = [
+  { label: "All ratings", value: "" },
   { label: "1.0 or higher", value: "1.0" },
   { label: "2.0 or higher", value: "2.0" },
   { label: "3.0 or higher", value: "3.0" },
@@ -30,24 +30,30 @@ interface Props {
   totalPages: number;
   isFetching: boolean;
   reviews: Review[];
-  fetchReviews: (page: number) => void;
+  setCurrentPage: (page: number) => void;
   setChannelFilter: (query: string) => void;
   setScoreFilter: (value: string) => void;
 }
+
+const selectStyles = {
+  control: (base: any) => ({
+    ...base,
+    minHeight: "3.8rem",
+    height: "3.8rem",
+  }),
+  dropdownIndicator: (base: any) => ({ ...base, padding: "0.8rem" }),
+  valueContainer: (base: any) => ({ ...base, padding: "0 0.8rem" }),
+};
 
 const ReviewsList: FC<Props> = ({
   currentPage,
   totalPages,
   isFetching,
   reviews,
-  fetchReviews,
+  setCurrentPage,
   setChannelFilter,
   setScoreFilter,
 }) => {
-  const handleChannelFilter = useDebounce((query: string) => {
-    setChannelFilter(query.toUpperCase());
-  });
-
   return (
     <div>
       <div className={styles.header}>
@@ -60,12 +66,13 @@ const ReviewsList: FC<Props> = ({
             placeholder="Rating"
             className={styles["filter-input"]}
             onChange={(val) => setScoreFilter(val?.value!)}
+            styles={selectStyles}
           />
           <Search
             name="channel"
             placeholder="Channel"
             isDisabled={isFetching}
-            onChange={handleChannelFilter}
+            onSearch={setChannelFilter}
           />
         </div>
       </div>
@@ -91,7 +98,7 @@ const ReviewsList: FC<Props> = ({
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
-            onPageChange={fetchReviews}
+            onPageChange={setCurrentPage}
           />
         </>
       ) : (
@@ -110,6 +117,6 @@ const mapStateToProps = ({
   isFetching,
 });
 
-const mapDispatchToProps = { fetchReviews, setChannelFilter, setScoreFilter };
+const mapDispatchToProps = { setCurrentPage, setChannelFilter, setScoreFilter };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReviewsList);

@@ -5,7 +5,8 @@ import {
   FETCH_REVIEWS_FAIL,
   SET_SCORE_FILTER,
   SET_CHANNEL_FILTER,
-} from "./../types/reviews";
+  SET_CURRENT_PAGE,
+} from "../action-types/reviews";
 let data: Review[] = [];
 
 const initialState = {
@@ -27,6 +28,9 @@ const reviewsReducer = (
   switch (type) {
     case SET_IS_FETCHING:
       return { ...state, isFetching: payload };
+
+    case SET_CURRENT_PAGE:
+      return { ...state, currentPage: payload };
 
     case SET_SCORE_FILTER:
       return { ...state, score: payload, currentPage: 1, totalPages: 1 };

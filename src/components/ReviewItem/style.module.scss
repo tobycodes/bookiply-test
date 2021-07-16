@@ -1,3 +1,5 @@
+@use "../../sass/variables.scss" as global;
+
 .review {
   &:not(:last-child) {
     border-bottom: 1px solid #e1e4e7;
@@ -19,7 +21,7 @@
     font-weight: 300;
   }
 
-  @media only screen and (min-width: 37.5em) {
+  @media only screen and (min-width: global.$bp-small) {
     & > * {
       margin-bottom: 1.5rem;
     }
@@ -33,12 +35,11 @@
 .header {
   display: flex;
   align-items: center;
-  // margin-bottom: 2rem;
 }
 
 .rating {
   color: #fff;
-  background-color: #0076db;
+  background-color: global.$color-blue;
   font-size: 1.5rem;
   font-weight: 300;
   line-height: 1;
@@ -103,5 +104,5 @@
 .date {
   color: #667a8e;
   font-size: 1.3rem;
-  font-weight: 500;
+  font-weight: 300;
 }

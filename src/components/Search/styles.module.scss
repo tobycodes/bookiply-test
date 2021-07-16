@@ -1,23 +1,26 @@
+@use "../../sass/variables.scss" as global;
+
 .input {
   display: flex;
   align-items: center;
   outline: none;
   height: 3.8rem;
-  width: 15rem;
+  width: 13rem;
+  max-width: 50%;
   border-radius: 0.4rem;
   padding: 0.8rem;
+
   border: 1px solid #ccc;
   font-family: inherit;
-
   font-size: 1em;
 
   &:focus {
-    border-color: #2684ff;
+    border-color: global.$color-blue-2;
     border-width: 1px;
-    box-shadow: 0 0 0 1px #2684ff;
+    box-shadow: 0 0 0 1px global.$color-blue-2;
   }
 
   &::placeholder {
-    color: rgb(128, 128, 128);
+    color: #808080;
   }
 }

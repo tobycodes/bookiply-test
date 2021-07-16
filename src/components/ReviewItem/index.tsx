@@ -32,7 +32,7 @@ const ReviewItem: FC<Review> = ({
       <p className={styles.comment}>{comment}</p>
       {positiveFeedback ? (
         <p className={styles.feedback}>
-          <span>
+          <span className={styles.icon}>
             <img src="/assets/thumb-up.svg" alt="thumb up" />
           </span>
           {positiveFeedback}
@@ -40,7 +40,9 @@ const ReviewItem: FC<Review> = ({
       ) : null}
       {negativeFeedback ? (
         <p className={styles.feedback}>
-          <img src="/assets/thumb-down.svg" alt="thumb down" />
+          <span className={styles.icon}>
+            <img src="/assets/thumb-down.svg" alt="thumb down" />
+          </span>
           {negativeFeedback}
         </p>
       ) : null}

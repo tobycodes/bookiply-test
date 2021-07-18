@@ -1,5 +1,6 @@
 import { ChangeEvent, FC, useState } from "react";
-import useDebounce from "../../hooks/useDebounce";
+
+import useDebounce from "hooks/useDebounce";
 
 import styles from "./styles.module.scss";
 

@@ -6,14 +6,15 @@ import {
   setChannelFilter,
   setScoreFilter,
   setCurrentPage,
-} from "../../redux/actions/reviews";
-import { RootState } from "../../redux/store";
-import { Review } from "../../types/reviews";
+} from "redux/actions/reviews";
+import { RootState } from "redux/store";
 
-import Pagination from "../Pagination";
-import ReviewItem from "../ReviewItem";
-import Search from "../Search";
-import Spinner from "../Spinner";
+import { Review } from "types/reviews";
+
+import Pagination from "components/Pagination";
+import ReviewItem from "components/ReviewItem";
+import Search from "components/Search";
+import Spinner from "components/Spinner";
 
 import styles from "./styles.module.scss";
 
@@ -57,14 +58,14 @@ const ReviewsList: FC<Props> = ({
   return (
     <div>
       <div className={styles.header}>
-        <h3 className={styles["review-count"]}>{reviews.length} Reviews</h3>
+        <h3 className={styles.reviewCount}>{reviews.length} Reviews</h3>
         <div className={styles.filter}>
           <Select
             name="score"
             isDisabled={isFetching}
             options={SCORE_OPTIONS}
             placeholder="Rating"
-            className={styles["filter-input"]}
+            className={styles.filterInput}
             onChange={(val) => setScoreFilter(val?.value!)}
             styles={selectStyles}
           />
@@ -80,7 +81,7 @@ const ReviewsList: FC<Props> = ({
         <Spinner />
       ) : reviews.length > 0 ? (
         <>
-          <div className={styles["review-list"]}>
+          <ul>
             {reviews.map((review, idx) => (
               <ReviewItem
                 key={idx}
@@ -94,7 +95,7 @@ const ReviewsList: FC<Props> = ({
                 score={review.score}
               />
             ))}
-          </div>
+          </ul>
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}

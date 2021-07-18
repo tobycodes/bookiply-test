@@ -1,10 +1,11 @@
 import { FC, useCallback, useEffect } from "react";
 import { connect } from "react-redux";
 
-import { fetchReviews } from "../../redux/actions/reviews";
-import { RootState } from "../../redux/store";
-import ErrorMessage from "../ErrorMessage";
-import ReviewList from "../ReviewsList";
+import { fetchReviews } from "redux/actions/reviews";
+import { RootState } from "redux/store";
+
+import ErrorMessage from "components/ErrorMessage";
+import ReviewList from "components/ReviewsList";
 
 import styles from "./style.module.scss";
 
@@ -50,7 +51,11 @@ const ReviewsPage: FC<Props> = ({
         </div>
         <div className={styles.reviews}>
           {errorMessage ? (
-            <ErrorMessage message={errorMessage} onClick={fetchData} />
+            <ErrorMessage
+              message={errorMessage}
+              onErrorAction={fetchData}
+              actionLabel="Try Again"
+            />
           ) : (
             <ReviewList />
           )}

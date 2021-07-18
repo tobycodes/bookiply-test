@@ -1,10 +1,12 @@
-@use "../../sass/variables.scss" as global;
+@use "sass/variables.scss" as global;
 
 .error {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  flex: 1;
 
   span {
     margin-bottom: 2rem;

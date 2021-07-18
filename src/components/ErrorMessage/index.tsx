@@ -4,14 +4,15 @@ import styles from "./styles.module.scss";
 
 interface Props {
   message: string;
-  onClick: () => void;
+  actionLabel: string;
+  onErrorAction: () => void;
 }
 
-const ErrorMessage: FC<Props> = ({ message, onClick }) => {
+const ErrorMessage: FC<Props> = ({ message, actionLabel, onErrorAction }) => {
   return (
     <div className={styles.error}>
-      <span>{message}</span>
-      <button onClick={onClick}>Try Again</button>
+      <span role="alert">{message}</span>
+      <button onClick={onErrorAction}>{actionLabel}</button>
     </div>
   );
 };

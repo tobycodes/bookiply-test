@@ -1,15 +1,15 @@
-import { SET_CURRENT_PAGE } from "./../action-types/reviews";
-import { Review } from "./../../types/reviews";
-import { getReviews } from "./../../async/api";
+import { SET_CURRENT_PAGE } from "redux/action-types/reviews";
+import { Review } from "types/reviews";
+import { getReviews } from "async/api";
 import {
   FETCH_REVIEWS_SUCCESS,
   FETCH_REVIEWS_FAIL,
   SET_IS_FETCHING,
   SET_SCORE_FILTER,
   SET_CHANNEL_FILTER,
-} from "../action-types/reviews";
-import { TDispatch } from "./../../types/common";
-import parseLinkHeader from "../../utils/parseLinkHeader";
+} from "redux/action-types/reviews";
+import { TDispatch } from "types/common";
+import parseLinkHeader from "utils/parseLinkHeader";
 
 export const fetchReviews =
   (page: number, filterParams?: { channel: string; score: string }) =>

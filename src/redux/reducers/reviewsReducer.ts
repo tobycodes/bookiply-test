@@ -1,4 +1,4 @@
-import { Review } from "./../../types/reviews";
+import { Review } from "types/reviews";
 import {
   SET_IS_FETCHING,
   FETCH_REVIEWS_SUCCESS,
@@ -6,7 +6,7 @@ import {
   SET_SCORE_FILTER,
   SET_CHANNEL_FILTER,
   SET_CURRENT_PAGE,
-} from "../action-types/reviews";
+} from "redux/action-types/reviews";
 let data: Review[] = [];
 
 const initialState = {

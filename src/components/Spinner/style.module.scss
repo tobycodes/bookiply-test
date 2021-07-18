@@ -1,4 +1,11 @@
-@use "../../sass/variables.scss" as global;
+@use "sass/variables.scss" as global;
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .ring {
   display: inline-block;

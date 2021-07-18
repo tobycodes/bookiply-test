@@ -1,10 +1,10 @@
 import { FC } from "react";
 
-import { Review } from "../../types/reviews";
+import { Review } from "types/reviews";
+
+import formatDate from "utils/formatDate";
 
 import styles from "./style.module.scss";
-
-import formatDate from "../../utils/formatDate";
 
 const ReviewItem: FC<Review> = ({
   headline,
@@ -19,7 +19,7 @@ const ReviewItem: FC<Review> = ({
   const fullDateString = formatDate(publishedAt);
 
   return (
-    <div className={styles.review}>
+    <li className={styles.review}>
       <div className={styles.header}>
         <div className={styles.rating}>
           <span>{score}</span> / 5
@@ -30,27 +30,27 @@ const ReviewItem: FC<Review> = ({
       </div>
       <h4 className={styles.headline}>{headline}</h4>
       <p className={styles.comment}>{comment}</p>
-      {positiveFeedback ? (
+      {positiveFeedback && (
         <p className={styles.feedback}>
           <span className={styles.icon}>
             <img src="/assets/thumb-up.svg" alt="thumb up" />
           </span>
           {positiveFeedback}
         </p>
-      ) : null}
-      {negativeFeedback ? (
+      )}
+      {negativeFeedback && (
         <p className={styles.feedback}>
           <span className={styles.icon}>
             <img src="/assets/thumb-down.svg" alt="thumb down" />
           </span>
           {negativeFeedback}
         </p>
-      ) : null}
+      )}
       <div className={styles.footer}>
         <span className={styles.author}>{author}</span>
         <span className={styles.date}>Reviewed {fullDateString}</span>
       </div>
-    </div>
+    </li>
   );
 };
 

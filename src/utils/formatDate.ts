@@ -1,5 +1,9 @@
+/** Parses a string in any date format and returns a new string in the format {dd month yyyy} */
 const formatDate = (dateString: string | Date) => {
   const date = new Date(dateString);
+
+  if (isNaN(date.getTime())) return dateString;
+
   const formattedDate = new Intl.DateTimeFormat(
     navigator?.language || "en-US",
     { dateStyle: "long" }

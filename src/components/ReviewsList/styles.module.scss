@@ -1,4 +1,4 @@
-@use "../../sass/variables.scss" as global;
+@use "sass/variables.scss" as global;
 
 .header {
   display: flex;
@@ -18,7 +18,7 @@
   max-width: 100%;
 }
 
-.filter-input {
+.filterInput {
   width: 13rem;
   max-width: 50%;
   align-self: center;
@@ -28,7 +28,7 @@
   }
 }
 
-.review-count {
+.reviewCount {
   font-size: 3.3rem;
   font-weight: 700;
   color: #163753;

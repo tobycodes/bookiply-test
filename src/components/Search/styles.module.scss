@@ -1,4 +1,4 @@
-@use "../../sass/variables.scss" as global;
+@use "sass/variables.scss" as global;
 
 .input {
   display: flex;
@@ -13,6 +13,8 @@
   border: 1px solid #ccc;
   font-family: inherit;
   font-size: 1em;
+
+  transition: box-shadow 0.1s ease;
 
   &:focus {
     border-color: global.$color-blue-2;

@@ -1,4 +1,4 @@
-@use "../../sass/variables.scss" as global;
+@use "sass/variables.scss" as global;
 
 html {
   font-size: 56.25%; /* 1rem = 56.25% * 16px = 9px */
@@ -24,4 +24,8 @@ body {
   font-weight: 400;
   line-height: 1.5;
   color: #163753;
+}
+
+ul {
+  list-style: none;
 }

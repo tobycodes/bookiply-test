@@ -19,6 +19,6 @@ describe("ReviewItem component", () => {
     expect(getByRole("img", { name: review.channel })).not.toBeNull();
     expect(getByText(review.comment)).not.toBeNull();
     expect(getByText(review.author)).not.toBeNull();
-    expect(getByText(reviewedDate, { exact: false })).not.toBeNull();
+    expect(getByText(reviewedDate as string, { exact: false })).not.toBeNull();
   });
 });

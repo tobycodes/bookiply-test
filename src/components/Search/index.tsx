@@ -8,10 +8,11 @@ interface Props {
   name: string;
   isDisabled: boolean;
   onSearch: (value: string) => void;
+  id?: string;
   placeholder?: string;
 }
 
-const Search: FC<Props> = ({ name, isDisabled, placeholder, onSearch }) => {
+const Search: FC<Props> = ({ name, isDisabled, placeholder, id, onSearch }) => {
   const [value, setValue] = useState("");
   const debouncedOnSearch = useDebounce(onSearch);
 
@@ -23,7 +24,8 @@ const Search: FC<Props> = ({ name, isDisabled, placeholder, onSearch }) => {
   return (
     <input
       name={name}
-      id={name}
+      id={id || name}
+      aria-label={name}
       type="search"
       value={value}
       disabled={isDisabled}

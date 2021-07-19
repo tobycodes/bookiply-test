@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 
 import { fetchReviews } from "redux/actions/reviews";
 import { RootState } from "redux/store";
-
 import ErrorMessage from "components/ErrorMessage";
 import ReviewList from "components/ReviewsList";
 

@@ -62,6 +62,7 @@ const ReviewsList: FC<Props> = ({
         <div className={styles.filter}>
           <Select
             name="score"
+            id="score"
             isDisabled={isFetching}
             options={SCORE_OPTIONS}
             placeholder="Rating"
@@ -81,7 +82,7 @@ const ReviewsList: FC<Props> = ({
         <Spinner />
       ) : reviews.length > 0 ? (
         <>
-          <ul>
+          <ul data-testid="reviews-list">
             {reviews.map((review, idx) => (
               <ReviewItem
                 key={idx}
